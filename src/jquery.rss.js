@@ -123,14 +123,14 @@
     var self   = this;
     var result = { entries: [], layout: null };
 
-    $(this.entries).each(function () {
+    $(this.entries).each(function (index, elem) {
       var entry       = this;
       var offsetStart = self.options.offsetStart;
       var offsetEnd   = self.options.offsetEnd;
       var evaluatedString;
 
       // offset required
-      if (offsetStart && offsetEnd) {
+      if (offsetStart >= 0 && offsetEnd >=0) {
         if (index >= offsetStart && index <= offsetEnd) {
           if (self.isRelevant(entry, result.entries)) {
             evaluatedString = self.evaluateStringForEntry(
